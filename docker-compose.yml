@@ -1,0 +1,32 @@
+version: '3.1'
+
+volumes:
+  bundle:
+services:
+  solar:
+    image: sourcegraph/codeintel-ruby
+    command: solargraph socket --host=0.0.0.0 --port=7658
+    volumes:
+      - ./:/app
+    ports:
+      - "7658:7658"
+    depends_on:
+      - ruby
+  ruby:
+    build: ./
+    links:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:user@db:5432/trail_dev
+    tty: true
+    ports:
+      - 9393:9393
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/app
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: trail_dev
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
