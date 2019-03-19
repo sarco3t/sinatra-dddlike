@@ -19,9 +19,9 @@ module Validation
         schema = scope.const_get :Schema
         validation = schema.(context.params)
         if validation.success?
-          context.model = context.model ? context.model.set(context.params) : scope.new(context.params)
+          context.model = context.model ? context.model.set(validation.output) : scope.new(validation.output)
         else
-          context.fail!(errors: validation.errors) 
+          context.fail!(errors: validation.errors)
         end
       end
     end

@@ -39,6 +39,13 @@ GEM
     htmlentities (4.3.4)
     interactor (3.1.1)
     jaro_winkler (1.5.2)
+    jsonapi-deserializable (0.2.0)
+    jsonapi-rb (0.5.0)
+      jsonapi-deserializable (~> 0.2.0)
+      jsonapi-serializable (~> 0.3.0)
+    jsonapi-renderer (0.2.0)
+    jsonapi-serializable (0.3.1)
+      jsonapi-renderer (~> 0.2.0)
     kramdown (1.17.0)
     mini_portile2 (2.4.0)
     multi_json (1.13.1)
@@ -119,6 +126,7 @@ DEPENDENCIES
   dotenv
   dry-validation
   interactor
+  jsonapi-rb
   pg
   rspec
   sequel

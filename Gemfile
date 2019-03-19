@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
-ruby "2.6.1"
+ruby '2.6.1'
+
+gem 'dry-validation'
+gem 'interactor'
+gem 'jsonapi-rb', require: 'jsonapi/serializable'
+gem 'pg'
 gem 'sequel'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'pg'
-gem 'interactor'
-gem 'dry-validation'
 
 group :development do
-  gem 'dotenv'
   gem 'byebug'
+  gem 'dotenv'
   gem 'shotgun'
   gem 'solargraph'
 end

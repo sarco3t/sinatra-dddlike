@@ -2,9 +2,8 @@
 module Routes
   module Main
     def self.registered(app)
-      app.get '/users' do
-        # op = User::List.(params)
-        # [200, UserRepresenter.new(op['model'])]
+      app.get '/locations' do
+        json Location::List.call.render
       end
     end
   end
